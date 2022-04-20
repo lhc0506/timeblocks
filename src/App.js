@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./component/Header";
+import Calendar from "./component/Calendar";
 
 function App() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
@@ -38,6 +39,7 @@ function App() {
   return (
     <div className="App">
       <Header month={currentMonth} year={currentYear} setMonth={setCurrentMonth} setYear={setCurrentYear} />
+      <Calendar dates={totalDate} month={currentMonth} year={currentYear} />
     </div>
   );
 }
