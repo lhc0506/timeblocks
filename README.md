@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# TimeBlocks 코딩과제_이호찬
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting Started
+### npm Install
+```
+$ npm install
+```
+### 실행
+```
+$ npm start
+```
+## Challenges
+### Context API 구현
+Todo를 저장해야 할 공간을 만들어야 할 때, 여러 가지 선택지가 있었습니다. state에 저장할 수도, redux를 사용하여 전역 state를 사용할 수도, 휘발이 되지 않을 수 있게 cookie나 localStorage를 이용할 수도 있었습니다. 그중에서 저는 Context API를 선택하였습니다. 그 이유는 redux라는 라이브러리를 사용하지 않고 컴포넌트 트리 전체에 데이터를 제공할 수 있다는 점과 아직 제가 사용해보지 않은 기술이라는 점이었습니다.
 
-## Available Scripts
+Context API는 전역 데이터를 저장하기 위한 Context를 생성하고, 초깃값을 설정합니다. Context도 하나의 React 컴포넌트이고, 변경 할 데이터를 useState를 사용하여 변경할 데이터를 state화 해줍니다. 그 후 화면에 표시될 내용에 Context의 Provider를 감싸서 제공합니다.
 
-In the project directory, you can run:
+Redux와 비교했을 때, Context API의 장점은 간편하다는 점이었습니다. 따로 모듈을 다운로드할 필요도 없고, 보일러 플레이트도 Redux에 비해 적었습니다. 하지만 이는 간단한 어플리케이션일 경우에 한정된 이야기이고, 복잡한 어플리케이션일수록 Redux와 성능 면에서 차이가 난다고 하고 있습니다. (리렌더링 최적화에 따른 성능 차이)
 
-### `npm start`
+이번 과제의 경우 단순히 prop-drilling을 피하기 위한 전역 관리였기 때문에 ContextAPI가 잘 어울렸다고 생각됩니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 아쉬운 점
+### 2일 이상 할 일 구현 시 연속되어 보이지 않음
+2일 이상 todo가 생성되면 현재는 각 날짜에 Array.prototype.push를 사용해서 마지막 칸으로 추가가 되고있습니다. 이럴 경우 같은 todo임에도 불구하고 한 줄로 이어지지 않는 경우가 발생하게 됩니다. 구글 캘린더의 경우, sort를 하여 Array를 재배치하는 것으로 보입니다. 확인 한 바로는 조건이 "todo가 2일 이상인지", "2일 이상일 경우 기간이 얼마인지", "시작일이 해당 일인지 혹은 그 전인지"가 있는 것으로 확인하였습니다. 기회가 된다면 위의 케이스와 제가 생각하지 못한 케이스들로 sorting 해볼 예정입니다.

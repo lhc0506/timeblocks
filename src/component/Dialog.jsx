@@ -61,7 +61,7 @@ export default function Dialog({ onClick, index, dateString }) {
       color,
     };
 
-    for (let i = 0; i < term; i++) {
+    for (let i = 0; i <= term; i++) {
       const dateForm = `${year}${String(month).padStart(2, "0")}${String(Number(date) + i).padStart(2, "0")}`
       newTodos[dateForm] ? newTodos[dateForm].push(newTodo) : newTodos[dateForm] = [newTodo];
     }
