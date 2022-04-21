@@ -11,7 +11,7 @@ const Container = styled.div`
     height: 20px;
     margin: 0 10px;
   }
-`
+`;
 
 const Month = styled.div`
   font-size: 25px;
@@ -22,7 +22,7 @@ const Month = styled.div`
 const Year = styled.div`
   font-size: 14px;
   margin-left: 10px;
-`
+`;
 
 export default function Header({ month, year, setMonth, setYear }) {
   const handlePrevButtonClick = () => {
