@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Datebox from "./Datebox";
+import { WEEK } from "../constants";
 
 const CalendarContainer = styled.div`
   display: grid;
@@ -15,18 +16,15 @@ const DateContainer = styled.div`
   border: 1px solid grey;
 `;
 
-const WEEK = ["일", "월", "화", "수", "목", "금", "토"];
-
-export default function Calendar({ dates, month, year }) {
-  console.log(dates);
+export default function Calendar({ dates }) {
   const makeCalendarHeader = () => {
     return WEEK.map(day => {
-      return <DateContainer key={day}>{day}</DateContainer>
-    })
+      return <DateContainer key={day}>{day}</DateContainer>;
+    });
   }
   const makeCalendar = () => {
     return dates.map((date, index) => {
-      return <Datebox date={date} key={index} index={index} />
+      return <Datebox dateString={date} key={index} index={index} />
     });
   };
 
@@ -35,5 +33,5 @@ export default function Calendar({ dates, month, year }) {
       {makeCalendarHeader()}
       {dates.length !== 0 && makeCalendar()}
     </CalendarContainer>
-  )
+  );
 }
