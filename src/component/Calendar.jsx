@@ -21,7 +21,8 @@ export default function Calendar({ dates }) {
     return WEEK.map(day => {
       return <DateContainer key={day}>{day}</DateContainer>;
     });
-  }
+  };
+
   const makeCalendar = () => {
     return dates.map((date, index) => {
       return <Datebox dateString={date} key={index} index={index} />

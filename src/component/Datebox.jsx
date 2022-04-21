@@ -33,13 +33,13 @@ export default function Datebox({ dateString, index }) {
     division = "prevMonth";
   } else if (index > 30 && date < 15) {
     division = "nextMonth";
-  } else if (index % 7 === 0 || index % 7 === 1) {
+  } else if (index % 7 === 0 || index % 7 === 6) {
     division = "weekend";
   }
 
   const showTodos = () => {
     return todos.map(todo => {
-      return <Todo color={todo.color}>{todo.todo}</Todo>;
+      return <Todo color={todo.color} key={todo.todo + index}>{todo.todo}</Todo>;
     });
   };
 
